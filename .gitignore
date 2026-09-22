@@ -1,0 +1,6 @@
+# A library resolves against its consumer's constraints, so its own lockfile
+# is noise — pub.dev's own guidance for packages.
+.dart_tool/
+.packages
+pubspec.lock
+build/

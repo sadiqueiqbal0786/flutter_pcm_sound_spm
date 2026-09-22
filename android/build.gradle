@@ -1,0 +1,29 @@
+group 'com.sadiqueiqbal.flutter_pcm_sound_spm'
+version '1.0'
+
+apply plugin: 'com.android.library'
+
+android {
+    // Upstream pinned 33, which breaks against newer AGP/Flutter toolchains.
+    // The fix exists on their master and has never been released — one of the
+    // reasons this fork exists.
+    compileSdkVersion flutter.compileSdkVersion
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    defaultConfig {
+        minSdkVersion 21
+    }
+
+    gradle.projectsEvaluated {
+        tasks.withType(JavaCompile) {
+            options.compilerArgs << "-Xlint:deprecation"
+            options.compilerArgs << "-Xlint:unchecked"
+        }
+    }
+
+    namespace 'com.sadiqueiqbal.flutter_pcm_sound_spm'
+}
