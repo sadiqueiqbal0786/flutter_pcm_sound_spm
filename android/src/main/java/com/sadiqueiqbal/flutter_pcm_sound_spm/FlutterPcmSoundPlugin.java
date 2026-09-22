@@ -1,3 +1,7 @@
+// Fork of flutter_pcm_sound by Chip Weinberger.
+// https://github.com/chipweinberger/flutter_pcm_sound — public domain
+// (Unlicense). This file is his work; see NOTICE for what the fork changed.
+
 package com.sadiqueiqbal.flutter_pcm_sound_spm;
 
 import android.os.Build;

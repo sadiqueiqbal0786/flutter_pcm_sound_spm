@@ -1,3 +1,7 @@
+// Fork of flutter_pcm_sound by Chip Weinberger.
+// https://github.com/chipweinberger/flutter_pcm_sound — public domain
+// (Unlicense). This file is his work; see NOTICE for what the fork changed.
+
 import 'dart:math' as math;
 import 'dart:async';
 import 'package:flutter/foundation.dart';

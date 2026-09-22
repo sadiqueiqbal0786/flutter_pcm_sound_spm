@@ -1,0 +1,31 @@
+flutter_pcm_sound_spm
+=====================
+
+This package is a fork of flutter_pcm_sound
+  https://pub.dev/packages/flutter_pcm_sound
+  https://github.com/chipweinberger/flutter_pcm_sound
+
+Original author: Chip Weinberger.
+
+The original is released into the public domain under the Unlicense, which
+places no condition on reuse — this credit is given because it is deserved,
+not because it is required.
+
+What is Chip Weinberger's work, essentially unchanged in this fork:
+
+  lib/flutter_pcm_sound_spm.dart
+  ios/flutter_pcm_sound_spm/Sources/flutter_pcm_sound_spm/*
+  macos/flutter_pcm_sound_spm/Sources/flutter_pcm_sound_spm/*
+  android/src/main/java/com/sadiqueiqbal/flutter_pcm_sound_spm/*
+
+What this fork adds:
+
+  * Swift Package Manager manifests for iOS and macOS, and the source layout
+    Flutter's SPM integration expects.
+  * The Android build compiling against Flutter's configured SDK rather than
+    a pinned compileSdkVersion 33 — a fix that exists on upstream's master
+    and has never been released.
+  * minSdk 21, Java 17, a distinct Android package name, and `debugPrint` in
+    place of `print` in the Dart logging.
+
+If upstream adopts Swift Package Manager, use it instead of this.

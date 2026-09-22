@@ -2,8 +2,11 @@
 
 Send real-time PCM audio (16-bit integer) to the device speakers.
 
-A fork of [`flutter_pcm_sound`](https://pub.dev/packages/flutter_pcm_sound) by
-Chip Weinberger, with **Swift Package Manager support** on iOS and macOS.
+> **This is not original work.** It is a fork of
+> [`flutter_pcm_sound`](https://pub.dev/packages/flutter_pcm_sound) by
+> **Chip Weinberger**, adding **Swift Package Manager support** on iOS and
+> macOS. The audio code is his. See [NOTICE](NOTICE) for exactly what is his
+> and what this fork changed, and prefer the original if it ever adopts SPM.
 
 ## Why this exists
 
