@@ -37,6 +37,7 @@ against newer toolchains, and now follows Flutter's configured SDK.
 | | `flutter_pcm_sound` | this fork |
 |---|---|---|
 | iOS / macOS build | CocoaPods only | **Swift Package Manager** *and* CocoaPods |
+| Web | not supported | **supported** (Web Audio, wasm-compatible) |
 | Android `compileSdk` | pinned to 33 | follows `flutter.compileSdkVersion` |
 | Android `minSdk` | 19 | 21 |
 | Java | 1.8 | 17 |
@@ -49,7 +50,7 @@ channel. Migration is one line in `pubspec.yaml` and one import.
 
 ```yaml
 dependencies:
-  flutter_pcm_sound_spm: ^1.0.0
+  flutter_pcm_sound_spm: ^1.1.0
 ```
 
 ```dart
@@ -65,6 +66,18 @@ await FlutterPcmSound.release();
 Do not depend on this and `flutter_pcm_sound` at the same time: they share a
 method channel name, and only one of them can own it.
 
+See [`example/`](example) for a runnable app — it plays a C major scale and
+shows the feed loop, which is the part worth copying.
+
+### On web
+
+The Dart API is the same, with two behaviours worth knowing:
+
+* **Audio will not start until the user has interacted with the page.** Every
+  browser blocks it. Trigger `setup`/`feed` from a tap or click, not on load.
+* `iosAudioCategory` and `iosAllowBackgroundAudio` are accepted and ignored —
+  they are iOS audio-session settings with no web equivalent.
+
 ## Credit and licence
 
 The audio implementation is Chip Weinberger's, unchanged apart from being
@@ -72,4 +85,5 @@ moved into the layout Flutter's SPM integration expects. The original is
 released into the public domain under [the Unlicense](LICENSE), which is what
 makes this fork possible; this fork keeps that licence.
 
-If upstream adopts SPM, switch back — nothing here is meant to compete with it.
+The web implementation is the one part that is not his: upstream has no web
+support, and that code is new in this fork.

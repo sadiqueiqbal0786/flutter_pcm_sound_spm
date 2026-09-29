@@ -160,13 +160,15 @@ class PcmArrayInt16 {
 
   int get count => bytes.lengthInBytes ~/ 2;
 
-  operator [](int idx) {
+  /// The 16-bit sample at [idx].
+  int operator [](int idx) {
     int vv = bytes.getInt16(idx * 2, Endian.host);
     return vv;
   }
 
-  operator []=(int idx, int value) {
-    return bytes.setInt16(idx * 2, value, Endian.host);
+  /// Writes the 16-bit [value] at [idx].
+  void operator []=(int idx, int value) {
+    bytes.setInt16(idx * 2, value, Endian.host);
   }
 }
 
