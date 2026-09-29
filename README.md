@@ -6,7 +6,7 @@ Send real-time PCM audio (16-bit integer) to the device speakers.
 > [`flutter_pcm_sound`](https://pub.dev/packages/flutter_pcm_sound) by
 > **Chip Weinberger**, adding **Swift Package Manager support** on iOS and
 > macOS. The audio code is his. See [NOTICE](NOTICE) for exactly what is his
-> and what this fork changed, and prefer the original if it ever adopts SPM.
+> and what this fork changed.
 
 ## Why this exists
 
@@ -20,6 +20,13 @@ The upstream package is CocoaPods-only. SPM support has been
 with no work on it, and the last release was October 2025. This fork does that
 migration so the plugin keeps building, and so a project whose only remaining
 pod was this one can drop CocoaPods entirely.
+
+**Upstream is being retired.** The SPM change was offered back as
+[PR #54](https://github.com/chipweinberger/flutter_pcm_sound/pull/54); on
+2026-09-29 Chip replied that the package "will become archived soon" and
+recommended forking. So this is not a temporary divergence waiting to be
+merged — upstream will not be adopting SPM, and this fork exists because of
+that, with his recommendation.
 
 It also carries a fix that exists on upstream's `master` but has never been
 released: the Android module pinned `compileSdkVersion 33`, which breaks
