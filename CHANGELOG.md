@@ -1,3 +1,26 @@
+## 1.2.0
+
+* **Windows and Linux support**, completing coverage of every Flutter
+  platform.
+  * **Windows** uses XAudio2. A source voice already is this plugin's
+    abstraction — submit buffers, get told when each finishes — so the queue
+    and its "running low" signal come from the API rather than being
+    hand-rolled on top of WASAPI. Needs no redistributable: XAudio2 2.9 ships
+    in Windows 10, which is Flutter's minimum.
+  * **Linux** uses ALSA. PulseAudio and PipeWire both expose an
+    ALSA-compatible device, so one implementation covers every desktop.
+    **Requires `libasound2-dev` at build time** (`sudo apt install
+    libasound2-dev`).
+  * Both match the Android callback contract exactly, including the
+    generation counters that make each event fire at most once per `feed()`.
+  * The feed callback is marshalled onto the platform thread on both — a
+    message-only window on Windows, `g_idle_add` on Linux. Flutter method
+    channels are not thread-safe, and calling one from an audio thread fails
+    intermittently rather than obviously.
+  * ALSA underruns (`-EPIPE`) are recovered rather than reported: they are
+    expected whenever the audio stream pauses.
+* The example app now runs on all six platforms.
+
 ## 1.1.0
 
 * **Web support.** New platform implementation backed by the Web Audio API,

@@ -38,6 +38,8 @@ against newer toolchains, and now follows Flutter's configured SDK.
 |---|---|---|
 | iOS / macOS build | CocoaPods only | **Swift Package Manager** *and* CocoaPods |
 | Web | not supported | **supported** (Web Audio, wasm-compatible) |
+| Windows | not supported | **supported** (XAudio2) |
+| Linux | not supported | **supported** (ALSA) |
 | Android `compileSdk` | pinned to 33 | follows `flutter.compileSdkVersion` |
 | Android `minSdk` | 19 | 21 |
 | Java | 1.8 | 17 |
@@ -50,8 +52,10 @@ channel. Migration is one line in `pubspec.yaml` and one import.
 
 ```yaml
 dependencies:
-  flutter_pcm_sound_spm: ^1.1.0
+  flutter_pcm_sound_spm: ^1.2.0
 ```
+
+Supported on **Android, iOS, macOS, web, Windows and Linux**.
 
 ```dart
 import 'package:flutter_pcm_sound_spm/flutter_pcm_sound_spm.dart';
@@ -68,6 +72,19 @@ method channel name, and only one of them can own it.
 
 See [`example/`](example) for a runnable app — it plays a C major scale and
 shows the feed loop, which is the part worth copying.
+
+### On Linux
+
+Building needs the ALSA development headers:
+
+```sh
+sudo apt install libasound2-dev     # Debian/Ubuntu
+sudo dnf install alsa-lib-devel     # Fedora
+```
+
+This is a build-time dependency only. At runtime ALSA is already present on
+any desktop with working audio, including PulseAudio and PipeWire systems,
+which both expose an ALSA-compatible device.
 
 ### On web
 

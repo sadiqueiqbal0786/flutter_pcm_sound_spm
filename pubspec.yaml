@@ -1,9 +1,8 @@
 name: flutter_pcm_sound_spm
 description: >-
-  Send real-time PCM audio (16-bit integer) to the device speakers on Android,
-  iOS, macOS and web. Swift Package Manager compatible fork of
-  flutter_pcm_sound.
-version: 1.1.0
+  Send real-time PCM audio (16-bit integer) to the device speakers on every
+  Flutter platform: Android, iOS, macOS, web, Windows and Linux.
+version: 1.2.0
 homepage: https://github.com/sadiqueiqbal0786/flutter_pcm_sound_spm
 repository: https://github.com/sadiqueiqbal0786/flutter_pcm_sound_spm
 issue_tracker: https://github.com/sadiqueiqbal0786/flutter_pcm_sound_spm/issues
@@ -44,3 +43,7 @@ flutter:
       web:
         pluginClass: FlutterPcmSoundWeb
         fileName: flutter_pcm_sound_spm_web.dart
+      windows:
+        pluginClass: FlutterPcmSoundSpmPluginCApi
+      linux:
+        pluginClass: FlutterPcmSoundSpmPlugin
